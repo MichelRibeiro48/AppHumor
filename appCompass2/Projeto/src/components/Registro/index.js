@@ -92,7 +92,7 @@ export default function Registro() {
   ];
 
   if (registros.length > 0) {
-    return <RegistroCheio registros={registros} />;
+    return <RegistroCheio registros={registros} />; // caso tenha registro, mostra Lista, se não mostra Tela sem Conteudo (planos futuros)
   } else {
     return <RegistroVazio />;
   }

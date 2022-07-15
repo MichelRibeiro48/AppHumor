@@ -5,6 +5,7 @@ import Feather from 'react-native-vector-icons/Feather';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import RotasModal from '../StackModalRoutes';
 import Registro from '../../components/Registro';
+import RegistroVazio from '../../components/RegistroVazio';
 export default function RegTabScreen() {
   const Tab = createBottomTabNavigator();
   return (
@@ -24,7 +25,7 @@ export default function RegTabScreen() {
       }}>
       <Tab.Screen
         name="TelaRegistro"
-        component={RotasModal}
+        component={RegistroVazio}
         options={{
           // eslint-disable-next-line react/no-unstable-nested-components
           tabBarIcon: ({focused}) => (
@@ -47,7 +48,7 @@ export default function RegTabScreen() {
       />
       <Tab.Screen
         name="Mais"
-        component={Registro}
+        component={RotasModal}
         options={{
           tabBarIcon: () => <Plus name="pluscircle" size={52} color={'blue'} />,
         }}
