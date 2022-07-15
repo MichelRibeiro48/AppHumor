@@ -24,7 +24,7 @@ export default StyleSheet.create({
   },
   buttonEnter: {
     margin: 68,
-    width: 133,
+    width: 138,
     paddingHorizontal: 40,
     paddingVertical: 14,
     alignItems: 'center',

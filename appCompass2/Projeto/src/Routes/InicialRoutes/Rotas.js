@@ -1,10 +1,8 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-
-import Login from '../telas/login';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-
-import RegTabScreen from '../src/components/RegTabScreen';
+import Login from '../../components/login';
+import RegTabScreen from '../RegTabScreen';
 
 const Stack = createNativeStackNavigator();
 

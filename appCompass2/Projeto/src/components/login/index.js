@@ -12,7 +12,10 @@ export default function Login({navigation}) {
   const [passwordText, passwordOnChangeText] = useState();
   return (
     <SafeAreaView style={styles.container}>
-      <Image style={styles.logo} source={require('../../assets/login.png')} />
+      <Image
+        style={styles.logo}
+        source={require('../../../assets/login.png')}
+      />
       <TextInput
         style={styles.input}
         onChangeText={emailOnChangeText}
@@ -33,7 +36,7 @@ export default function Login({navigation}) {
       <TouchableOpacity
         style={styles.buttonEnter}
         onPress={() => navigation.navigate('Registro')}>
-        <Text style={styles.buttonText}>Entrar</Text>
+        <Text style={styles.buttonText}>ENTRAR</Text>
       </TouchableOpacity>
     </SafeAreaView>
   );

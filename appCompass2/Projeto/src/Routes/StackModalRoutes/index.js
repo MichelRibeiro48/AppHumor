@@ -1,8 +1,8 @@
 import React from 'react';
 
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import Registro from '../../../telas/Registro';
-import Detalhes from '../../../telas/Detalhes';
+import Registro from '../../components/Registro';
+import Detalhes from '../../components/Detalhes';
 
 const StackModal = createNativeStackNavigator();
 

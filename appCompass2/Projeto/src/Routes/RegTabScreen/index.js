@@ -1,10 +1,10 @@
 import React from 'react';
-import Registro from '../../../telas/Registro';
 import Entypo from 'react-native-vector-icons/Entypo';
 import Plus from 'react-native-vector-icons/AntDesign';
 import Feather from 'react-native-vector-icons/Feather';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import RotasModal from '../../Routes/StackModalRoutes';
+import RotasModal from '../StackModalRoutes';
+import Registro from '../../components/Registro';
 export default function RegTabScreen() {
   const Tab = createBottomTabNavigator();
   return (

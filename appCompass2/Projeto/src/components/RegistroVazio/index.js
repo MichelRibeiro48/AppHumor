@@ -7,7 +7,7 @@ export default function RegistroVazio() {
     <View style={regStyles.container}>
       <Image
         style={regStyles.emote}
-        source={require('../../assets/neutral.png')}
+        source={require('../../../assets/neutral.png')}
       />
       <Text style={regStyles.text}>
         Você ainda não tem nenhum registro diário. Para começar, toque no ícone

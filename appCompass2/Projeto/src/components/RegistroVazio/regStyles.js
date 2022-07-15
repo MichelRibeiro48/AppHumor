@@ -14,7 +14,7 @@ export default StyleSheet.create({
     textAlign: 'center',
     letterSpacing: -0.3,
     color: '#ACACAC',
-    width: 258,
+    width: 280,
     height: 80,
   },
   emote: {
