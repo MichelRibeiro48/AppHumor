@@ -4,7 +4,7 @@ import Entypo from 'react-native-vector-icons/Entypo';
 import Plus from 'react-native-vector-icons/AntDesign';
 import Feather from 'react-native-vector-icons/Feather';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import Detalhes from '../../../telas/Detalhes';
+import RotasModal from '../../Routes/StackModalRoutes';
 export default function RegTabScreen() {
   const Tab = createBottomTabNavigator();
   return (
@@ -24,7 +24,7 @@ export default function RegTabScreen() {
       }}>
       <Tab.Screen
         name="TelaRegistro"
-        component={Registro}
+        component={RotasModal}
         options={{
           // eslint-disable-next-line react/no-unstable-nested-components
           tabBarIcon: ({focused}) => (
@@ -53,8 +53,8 @@ export default function RegTabScreen() {
         }}
       />
       <Tab.Screen
-        name="Detalhes"
-        component={Detalhes}
+        name="Lista"
+        component={Registro}
         options={{
           // eslint-disable-next-line react/no-unstable-nested-components
           tabBarIcon: () => (

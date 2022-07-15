@@ -12,7 +12,7 @@ import {
 import Circle from 'react-native-vector-icons/FontAwesome';
 import RegFStyles from './RegFStyles';
 export default function RegistroCheio({registros}) {
-  const navigation = useNavigation();
+  const Navigation = useNavigation();
   return (
     <SafeAreaView style={RegFStyles.marginToScroll}>
       <FlatList
@@ -21,7 +21,7 @@ export default function RegistroCheio({registros}) {
         renderItem={({item}) => (
           <TouchableOpacity
             style={RegFStyles.container}
-            onPress={() => navigation.navigate('Detalhes', {item: item})}>
+            onPress={() => Navigation.navigate('Details', {item: item})}>
             <View style={RegFStyles.informationContainer}>
               <Image style={RegFStyles.smile} source={item.emote} />
               <View>
