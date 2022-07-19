@@ -4,14 +4,15 @@ import Plus from 'react-native-vector-icons/AntDesign';
 import Feather from 'react-native-vector-icons/Feather';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import RotasModal from '../StackModalRoutes';
-import Registro from '../../components/Registro';
 import RegistroVazio from '../../components/RegistroVazio';
+import RotasPerfil from '../RotasPerfil';
 export default function RegTabScreen() {
   const Tab = createBottomTabNavigator();
   return (
     <Tab.Navigator
       screenOptions={{
         headerShown: false,
+        tabBarHideOnKeyboard: true,
         tabBarStyle: {
           height: 100,
           backgroundColor: '#FFFFFF',
@@ -55,17 +56,17 @@ export default function RegTabScreen() {
       />
       <Tab.Screen
         name="Lista"
-        component={Registro}
+        component={RotasPerfil}
         options={{
           // eslint-disable-next-line react/no-unstable-nested-components
-          tabBarIcon: () => (
+          tabBarIcon: ({focused}) => (
             <Feather
               name="list"
               size={24}
-              color={'blue'}
+              color={focused ? 'blue' : 'white'}
               // eslint-disable-next-line react-native/no-inline-styles
               style={{
-                backgroundColor: '#304ffe1a',
+                backgroundColor: focused ? '#304ffe1a' : 'blue',
                 paddingTop: 8,
                 paddingBottom: 8,
                 paddingLeft: 12,
