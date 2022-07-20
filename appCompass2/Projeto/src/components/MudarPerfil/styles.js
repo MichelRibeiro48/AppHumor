@@ -2,9 +2,8 @@ import {StyleSheet} from 'react-native';
 
 export default StyleSheet.create({
   container: {
-    flex: 1,
     alignItems: 'center',
-    marginTop: 20,
+    justifyContent: 'center',
     padding: 43,
   },
   image: {
@@ -15,8 +14,7 @@ export default StyleSheet.create({
     padding: 50,
   },
   alterPhotoButon: {
-    marginTop: 30,
-    marginBottom: 25,
+    marginVertical: 40,
     height: 44,
     width: 150,
     backgroundColor: '#304FFE24',
@@ -28,8 +26,8 @@ export default StyleSheet.create({
   },
   input: {
     width: '100%',
-    margin: 4,
     padding: 5,
+    marginVertical: 5,
     backgroundColor: 'white',
     color: 'black',
     borderWidth: 1,
@@ -41,11 +39,6 @@ export default StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 6,
-    marginTop: 20,
-    marginBottom: 16,
-  },
-  teste: {
-    width: '100%',
-    backgroundColor: 'blue',
+    marginTop: 35,
   },
 });
