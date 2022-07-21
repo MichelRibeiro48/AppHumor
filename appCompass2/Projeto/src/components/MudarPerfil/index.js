@@ -20,9 +20,9 @@ export default function MudarPerfil({navigation}) {
           source={require('../../../assets/atividades/games.png')}
         />
         <TouchableOpacity
-          style={styles.alterPhotoButon}
+          style={styles.alterPhotoButton}
           onPress={() => navigation.navigate('AlterarFoto')}>
-          <Text>ALTERAR FOTO</Text>
+          <Text style={styles.alterText}>ALTERAR FOTO</Text>
         </TouchableOpacity>
 
         <Text style={{alignSelf: 'flex-start'}}>NOME</Text>
