@@ -13,7 +13,7 @@ export default StyleSheet.create({
     borderRadius: 50,
     padding: 50,
   },
-  alterPhotoButon: {
+  alterPhotoButton: {
     marginVertical: 40,
     height: 44,
     width: 150,
@@ -22,7 +22,7 @@ export default StyleSheet.create({
     justifyContent: 'center',
     borderRadius: 6,
     borderWidth: 2,
-    borderColor: '#6A7A84',
+    borderColor: '#c0c6f1',
   },
   input: {
     width: '100%',
@@ -40,5 +40,9 @@ export default StyleSheet.create({
     alignItems: 'center',
     borderRadius: 6,
     marginTop: 35,
+  },
+  alterText: {
+    color: 'blue',
+    fontWeight: 'bold',
   },
 });

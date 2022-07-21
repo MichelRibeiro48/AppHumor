@@ -6,8 +6,19 @@ import {
   TextInput,
   TouchableOpacity,
 } from 'react-native';
+import {api} from '../../service/api';
 import styles from './styles';
 export default function Login({navigation}) {
+  const Tentativa = async () => {
+    try {
+      const response = await api.post('/oauth/token', {
+        email: emailText,
+        password: passwordText,
+      });
+    } catch (err) {
+      alert(err.message);
+    }
+  };
   const [emailText, emailOnChangeText] = useState();
   const [passwordText, passwordOnChangeText] = useState();
   return (
