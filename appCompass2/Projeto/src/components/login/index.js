@@ -6,15 +6,28 @@ import {
   TextInput,
   TouchableOpacity,
 } from 'react-native';
-import {api} from '../../service/api';
 import styles from './styles';
+import axios from 'axios';
 export default function Login({navigation}) {
   const Tentativa = async () => {
     try {
-      const response = await api.post('/oauth/token', {
+      const payload = {
+        grant_type: 'password',
         email: emailText,
         password: passwordText,
-      });
+        client_id: '3mGWGtxIEKyhq_HGG4cq6hsTOd_zn1SuTD3_cafjUPc',
+        client_secret: '389JLi1Nd6DQ_soCI85C57ueTlMZ_JR7pRq6SJ0GaB0',
+      };
+      const response = await axios.post(
+        'https://shrouded-shelf-01513.herokuapp.com/oauth/token',
+        payload,
+      );
+      if (response.error) {
+        alert(response.message);
+        return false;
+      }
+      navigation.navigate('Registro');
+      console.log(response.data);
     } catch (err) {
       alert(err.message);
     }
@@ -44,9 +57,7 @@ export default function Login({navigation}) {
         secureTextEntry={true}
         autoCapitalize="none"
       />
-      <TouchableOpacity
-        style={styles.buttonEnter}
-        onPress={() => navigation.navigate('Registro')}>
+      <TouchableOpacity style={styles.buttonEnter} onPress={() => Tentativa()}>
         <Text style={styles.buttonText}>ENTRAR</Text>
       </TouchableOpacity>
     </SafeAreaView>

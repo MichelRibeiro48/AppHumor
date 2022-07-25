@@ -16,7 +16,7 @@ export default StyleSheet.create({
   },
   editProfileButton: {
     width: '100%',
-    backgroundColor: 'blue',
+    backgroundColor: '#304FFE',
     height: 52,
     justifyContent: 'center',
     alignItems: 'center',
@@ -33,5 +33,35 @@ export default StyleSheet.create({
     borderRadius: 6,
     borderColor: 'black',
     borderWidth: 2,
+  },
+  profileText: {
+    marginTop: 46,
+    fontFamily: 'SourceSansPro-Regular',
+    color: 'black',
+    fontSize: 36,
+  },
+  buttonEditText: {
+    color: 'white',
+    fontFamily: 'SourceSansPro-SemiBold',
+    fontSize: 15,
+  },
+  buttonExitText: {
+    color: 'black',
+    fontFamily: 'SourceSansPro-SemiBold',
+    fontSize: 15,
+  },
+  informationBox: {
+    alignSelf: 'flex-start',
+    marginTop: 17,
+  },
+  informationType: {
+    fontFamily: 'SourceSansPro-Bold',
+    color: 'black',
+  },
+  information: {
+    color: 'black',
+  },
+  informationRow: {
+    flexDirection: 'row',
   },
 });

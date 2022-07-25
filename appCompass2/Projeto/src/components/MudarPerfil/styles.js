@@ -34,7 +34,7 @@ export default StyleSheet.create({
   },
   saveButton: {
     width: '100%',
-    backgroundColor: 'blue',
+    backgroundColor: '#304FFE',
     height: 52,
     justifyContent: 'center',
     alignItems: 'center',
@@ -44,5 +44,21 @@ export default StyleSheet.create({
   alterText: {
     color: 'blue',
     fontWeight: 'bold',
+  },
+  informationType: {
+    color: 'black',
+    alignSelf: 'flex-start',
+    fontFamily: 'SourceSansPro-Bold',
+  },
+  buttonText: {
+    color: 'white',
+    fontFamily: 'SourceSansPro-Bold',
+  },
+  pickerStyle: {
+    backgroundColor: 'white',
+  },
+  pickerBorder: {
+    width: '100%',
+    borderWidth: 1,
   },
 });
