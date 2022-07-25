@@ -9,14 +9,28 @@ export default function Perfil({navigation}) {
         style={styles.image}
         source={require('../../../assets/atividades/games.png')}
       />
-      <Text style={{marginTop: 46}}>Oi Nope</Text>
+      <Text style={styles.profileText}>Olá Fulana</Text>
+      <View style={styles.informationBox}>
+        <View style={styles.informationRow}>
+          <Text style={styles.informationType}>E-MAIL: </Text>
+          <Text style={styles.information}>FULANA@GMAIL.COM</Text>
+        </View>
+        <View style={styles.informationRow}>
+          <Text style={styles.informationType}>GÊNERO: </Text>
+          <Text style={styles.information}>FEMININO</Text>
+        </View>
+        <View style={styles.informationRow}>
+          <Text style={styles.informationType}>DATA DE NASCIMENTO:</Text>
+          <Text style={styles.information}> 15/12/1998</Text>
+        </View>
+      </View>
       <TouchableOpacity
         style={styles.editProfileButton}
         onPress={() => navigation.navigate('MudarPerfil')}>
-        <Text style={{color: 'white'}}>EDITAR PERFIL</Text>
+        <Text style={styles.buttonEditText}>EDITAR PERFIL</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.exitProfileButton}>
-        <Text style={{color: 'black'}}>SAIR</Text>
+        <Text style={styles.buttonExitText}>SAIR</Text>
       </TouchableOpacity>
     </View>
   );
