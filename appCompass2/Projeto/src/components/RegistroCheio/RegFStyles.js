@@ -44,6 +44,7 @@ export default StyleSheet.create({
   textColor: {
     color: '#000000',
     fontFamily: 'SourceSansPro-SemiBold',
+    fontSize: 12,
   },
   circleStyle: {
     marginLeft: 11,
@@ -58,7 +59,6 @@ export default StyleSheet.create({
     color: '#ACACAC',
   },
   marginToScroll: {
-    marginBottom: 100,
     paddingTop: 18,
   },
 });

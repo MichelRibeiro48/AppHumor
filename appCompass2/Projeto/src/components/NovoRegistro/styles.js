@@ -26,11 +26,13 @@ export default StyleSheet.create({
     padding: 10,
   },
   EspacoTexto: {
+    color: '#969696',
     marginLeft: 10,
   },
   FonteTexto: {
+    color: 'black',
     fontSize: 30,
-    fontWeight: 'bold',
+    fontFamily: 'SourceSansPro-Bold',
   },
   emojistyles: {
     width: 43,
@@ -41,22 +43,21 @@ export default StyleSheet.create({
     alignItems: 'center',
   },
   teste: {
-    fontSize: 11,
-    marginTop: 5,
+    display: 'flex',
+    justifyContent: 'space-between',
   },
   boxActivities: {
-    alignItems: 'center',
     marginTop: 25,
     borderColor: 'black',
     borderWidth: 1,
-    borderRadius: 5,
+    borderRadius: 20,
+    alignItems: 'center',
   },
   input: {
     borderColor: 'black',
-    borderRadius: 10,
+    borderRadius: 20,
     borderWidth: 1,
     marginTop: 15,
-    padding: 10,
     backgroundColor: 'white',
     color: 'black',
   },

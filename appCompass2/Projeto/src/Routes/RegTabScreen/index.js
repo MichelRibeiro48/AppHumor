@@ -6,6 +6,9 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import RotasModal from '../StackModalRoutes';
 import RegistroVazio from '../../components/RegistroVazio';
 import RotasPerfil from '../RotasPerfil';
+import Navigation from '../../components/Navigation';
+import NovoRegistro from '../../components/NovoRegistro';
+import Registro from '../../components/Registro';
 export default function RegTabScreen() {
   const Tab = createBottomTabNavigator();
   return (
@@ -16,7 +19,6 @@ export default function RegTabScreen() {
         tabBarStyle: {
           height: 100,
           backgroundColor: '#FFFFFF',
-          position: 'absolute',
           borderTopColor: '#C4C4C4',
           borderTopWidth: 2,
         },
@@ -26,7 +28,7 @@ export default function RegTabScreen() {
       }}>
       <Tab.Screen
         name="TelaRegistro"
-        component={RegistroVazio}
+        component={Registro}
         options={{
           // eslint-disable-next-line react/no-unstable-nested-components
           tabBarIcon: ({focused}) => (
@@ -49,8 +51,9 @@ export default function RegTabScreen() {
       />
       <Tab.Screen
         name="Mais"
-        component={RotasModal}
+        component={NovoRegistro}
         options={{
+          tabBarShowLabel: false,
           tabBarIcon: () => <Plus name="pluscircle" size={52} color={'blue'} />,
         }}
       />

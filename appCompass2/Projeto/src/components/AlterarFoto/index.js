@@ -1,12 +1,48 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {FlatList, Text, TouchableOpacity, View} from 'react-native';
 
 import CloseIcon from 'react-native-vector-icons/AntDesign';
+import {api} from '../../service/api';
 import Emotes from '../Emotes';
 import Fotos from '../Fotos';
 import styles from './styles';
 export default function AlterarFoto({navigation}) {
+  const [photos, setPhotos] = useState();
+  const getPhotos = async () => {
+    try {
+      const response = await api.get(
+        'https://shrouded-shelf-01513.herokuapp.com/photos',
+      );
+      setPhotos(response.data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  const updateUserPhoto = async () => {
+    try {
+      const payload = {
+        user: {
+          photo_id: emoteAtivo.id,
+        },
+      };
+      const response = await api.put(
+        'https://shrouded-shelf-01513.herokuapp.com/user',
+        payload,
+      );
+      if (response.error) {
+        alert(response.message);
+        return false;
+      }
+      return response.data;
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  useEffect(() => {
+    getPhotos();
+  }, []);
   const [emoteAtivo, setEmoteAtivo] = useState(null);
+  console.log(emoteAtivo);
   const emojis = [
     {
       id: 1,
@@ -48,19 +84,29 @@ export default function AlterarFoto({navigation}) {
       <View style={styles.container}>
         <Text style={styles.selectionText}>Selecione a foto de perfil</Text>
         <FlatList
-          data={emojis}
+          data={photos}
           keyExtractor={item => item.id}
           numColumns={3}
           renderItem={({item}) => (
             <Fotos
               item={item}
               estaAtivo={item.id === emoteAtivo?.id}
-              onPress={() => setEmoteAtivo(item)}
+              onPress={() =>
+                item.id === emoteAtivo?.id
+                  ? setEmoteAtivo(null)
+                  : setEmoteAtivo(item)
+              }
             />
           )}
         />
         <TouchableOpacity style={styles.buttonConfirm}>
-          <Text style={styles.buttonText}>CONFIRMAR</Text>
+          <Text
+            style={styles.buttonText}
+            onPress={() => {
+              updateUserPhoto(), navigation.goBack();
+            }}>
+            CONFIRMAR
+          </Text>
         </TouchableOpacity>
       </View>
     </View>

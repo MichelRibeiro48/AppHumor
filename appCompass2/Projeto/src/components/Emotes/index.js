@@ -1,5 +1,6 @@
 import React from 'react';
 import {Image, Text, TouchableOpacity, View} from 'react-native';
+import {traducao} from '../../settings/ptBR';
 import styles from './styles';
 
 export default function Emotes({item, estaAtivo, onPress}) {
@@ -16,7 +17,7 @@ export default function Emotes({item, estaAtivo, onPress}) {
       <View>
         <Text
           style={{color: estaAtivo ? '#C801FA' : '#969696', ...styles.teste}}>
-          {item.descricao}
+          {traducao[item.descricao]}
         </Text>
       </View>
     </TouchableOpacity>
