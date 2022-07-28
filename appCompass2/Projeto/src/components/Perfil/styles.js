@@ -10,7 +10,6 @@ export default StyleSheet.create({
   image: {
     height: 52,
     width: 52,
-    backgroundColor: '#F16063',
     borderRadius: 50,
     padding: 50,
   },
@@ -59,6 +58,8 @@ export default StyleSheet.create({
     color: 'black',
   },
   information: {
+    marginLeft: 3,
+    fontFamily: 'SourceSansPro-SemiBold',
     color: 'black',
   },
   informationRow: {

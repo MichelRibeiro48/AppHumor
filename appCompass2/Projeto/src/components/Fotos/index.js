@@ -7,11 +7,16 @@ export default function Fotos({item, estaAtivo, onPress}) {
     <TouchableOpacity style={styles.button} onPress={onPress}>
       <View
         style={{
-          borderColor: estaAtivo ? 'blue' : 'transparent',
+          borderColor: estaAtivo ? '#304FFE' : 'transparent',
           borderRadius: 100,
-          borderWidth: 7,
+          borderWidth: 5,
         }}>
-        <Image source={item.emote} style={styles.emojiStyles} />
+        <Image
+          source={{
+            uri: `https://shrouded-shelf-01513.herokuapp.com${item.url}`,
+          }}
+          style={styles.emojiStyles}
+        />
       </View>
     </TouchableOpacity>
   );

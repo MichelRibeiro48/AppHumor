@@ -1,8 +1,24 @@
-import React from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import React, {useEffect, useState} from 'react';
+import {api} from '../../service/api';
 import RegistroCheio from '../RegistroCheio';
 import RegistroVazio from '../RegistroVazio';
 
 export default function Registro() {
+  const [atividades, setAtividades] = useState(null);
+  const getActivities = async () => {
+    try {
+      const response = await api.get(
+        'https://shrouded-shelf-01513.herokuapp.com/daily_entries',
+      );
+      setAtividades(response.data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  useEffect(() => {
+    getActivities();
+  }, []);
   const registros = [
     {
       id: '1',
@@ -90,9 +106,8 @@ export default function Registro() {
       descricao: 'Lorem Ipsum Dolor Sit',
     },
   ];
-
   if (registros.length > 0) {
-    return <RegistroCheio registros={registros} />; // caso tenha registro, mostra Lista, se não mostra Tela sem Conteudo (planos futuros)
+    return <RegistroCheio registros={atividades} />; // caso tenha registro, mostra Lista, se não mostra Tela sem Conteudo (planos futuros)
   } else {
     return <RegistroVazio />;
   }

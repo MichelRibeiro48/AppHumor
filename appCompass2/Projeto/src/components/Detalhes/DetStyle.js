@@ -53,21 +53,19 @@ export default StyleSheet.create({
   TextSports: {
     fontSize: 13,
     color: 'black',
-    marginLeft: 13,
     fontFamily: 'SourceSansPro-Bold',
     marginTop: 9,
   },
   TextParty: {
     fontSize: 13,
     color: 'black',
-    marginLeft: 5,
     fontFamily: 'SourceSansPro-Bold',
     marginTop: 9,
   },
   textBox: {
     flexDirection: 'row',
     justifyContent: 'space-around',
-    marginLeft: 5,
+    marginRight: 6,
   },
   icon: {
     padding: 12,

@@ -3,6 +3,7 @@ import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import MudarPerfil from '../../components/MudarPerfil';
 import Perfil from '../../components/Perfil';
+import AlterarFoto from '../../components/AlterarFoto';
 
 const StackProfile = createNativeStackNavigator();
 

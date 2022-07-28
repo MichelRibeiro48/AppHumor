@@ -4,15 +4,21 @@ import {
   FlatList,
   Image,
   SafeAreaView,
+  ScrollView,
   Text,
   TouchableOpacity,
   View,
 } from 'react-native';
-
 import Circle from 'react-native-vector-icons/FontAwesome';
 import RegFStyles from './RegFStyles';
+import {EMOJIS} from '../../settings/images';
+import format from 'date-fns/format';
+import ptBR from 'date-fns/locale/pt-BR';
+import {traducao} from '../../settings/ptBR';
+import {ACTIVITIESICON} from '../../settings/activitiesIcon';
 export default function RegistroCheio({registros}) {
   const Navigation = useNavigation();
+
   return (
     <SafeAreaView style={RegFStyles.marginToScroll}>
       <FlatList
@@ -23,65 +29,100 @@ export default function RegistroCheio({registros}) {
             style={RegFStyles.container}
             onPress={() => Navigation.navigate('Details', {item: item})}>
             <View style={RegFStyles.informationContainer}>
-              <Image style={RegFStyles.smile} source={item.emote} />
+              <Image style={RegFStyles.smile} source={EMOJIS[item.mood]} />
               <View>
                 <View style={RegFStyles.information}>
-                  <Text style={RegFStyles.title}>{item.data}</Text>
+                  <Text style={RegFStyles.title}>
+                    {format(new Date(item.created_at), 'PPP', {
+                      locale: ptBR,
+                    })}
+                  </Text>
                 </View>
                 <View style={RegFStyles.informationRow}>
                   <Text
                     style={
-                      item.status === 'BEM'
+                      item.mood === 'happy'
                         ? // eslint-disable-next-line react-native/no-inline-styles
                           {
                             color: '#E24B4B',
                             fontSize: 24,
                             fontFamily: 'SourceSansPro-Bold',
                           }
-                        : item.status === 'MAL'
+                        : item.mood === 'sad'
                         ? // eslint-disable-next-line react-native/no-inline-styles
                           {
                             color: '#4B75E2',
                             fontSize: 24,
                             fontFamily: 'SourceSansPro-Bold',
                           }
-                        : item.status === 'TRISTE'
+                        : item.mood === 'terrible'
                         ? // eslint-disable-next-line react-native/no-inline-styles
                           {
                             color: '#4BE263',
                             fontSize: 24,
                             fontFamily: 'SourceSansPro-Bold',
                           }
+                        : item.mood === 'radiant'
+                        ? {
+                            color: '#29ACE9',
+                            fontSize: 24,
+                            fontFamily: 'SourceSansPro-Bold',
+                          }
+                        : item.mood === 'ok'
+                        ? {
+                            color: '#889BA4',
+                            fontSize: 24,
+                            fontFamily: 'SourceSansPro-Bold',
+                          }
                         : null
                     }>
-                    {item.status}
+                    {traducao[item.mood]}
                   </Text>
-                  <Text style={RegFStyles.hora}>{item.hora}</Text>
+                  <Text style={RegFStyles.hora}>
+                    {format(new Date(item.created_at), 'HH:mm', {
+                      locale: ptBR,
+                    })}
+                  </Text>
                 </View>
               </View>
             </View>
             <View style={RegFStyles.typeInformation}>
-              <Image style={RegFStyles.icon} source={item.imagemtipo[0]} />
-              <Text style={RegFStyles.textColor}>{item.tipo[0]}</Text>
+              <Image
+                style={RegFStyles.icon}
+                source={ACTIVITIESICON[item.activities[0].name]}
+              />
+              <Text style={RegFStyles.textColor}>
+                {traducao[item.activities[0].name]}
+              </Text>
               <Circle
                 name={'circle'}
                 size={8}
                 color={'black'}
                 style={RegFStyles.circleStyle}
               />
-              <Image style={RegFStyles.icon} source={item.imagemtipo[1]} />
-              <Text style={RegFStyles.textColor}>{item.tipo[1]}</Text>
+              <Image
+                style={RegFStyles.icon}
+                source={ACTIVITIESICON[item.activities[1].name]}
+              />
+              <Text style={RegFStyles.textColor}>
+                {traducao[item.activities[1].name]}
+              </Text>
               <Circle
                 name={'circle'}
                 size={8}
                 color={'black'}
                 style={RegFStyles.circleStyle}
               />
-              <Image style={RegFStyles.icon} source={item.imagemtipo[2]} />
-              <Text style={RegFStyles.textColor}>{item.tipo[2]}</Text>
+              <Image
+                style={RegFStyles.icon}
+                source={ACTIVITIESICON[item.activities[2].name]}
+              />
+              <Text style={RegFStyles.textColor}>
+                {traducao[item.activities[2].name]}
+              </Text>
             </View>
             <Text style={RegFStyles.descricao} numberOfLines={1}>
-              {item.descricao}
+              {item.short_description}
             </Text>
           </TouchableOpacity>
         )}

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   Image,
   SafeAreaView,
@@ -8,8 +8,15 @@ import {
 } from 'react-native';
 import styles from './styles';
 import axios from 'axios';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 export default function Login({navigation}) {
-  const Tentativa = async () => {
+  const checkLogin = async () => {
+    const user = await AsyncStorage.getItem('@user');
+    if (user) {
+      navigation.replace('Registro');
+    }
+  };
+  const Login = async () => {
     try {
       const payload = {
         grant_type: 'password',
@@ -26,12 +33,17 @@ export default function Login({navigation}) {
         alert(response.message);
         return false;
       }
+      await AsyncStorage.setItem('@user', JSON.stringify(response.data));
+      await AsyncStorage.setItem('@token', response.data.access_token);
       navigation.navigate('Registro');
-      console.log(response.data);
     } catch (err) {
       alert(err.message);
     }
   };
+
+  useEffect(() => {
+    checkLogin();
+  });
   const [emailText, emailOnChangeText] = useState();
   const [passwordText, passwordOnChangeText] = useState();
   return (
@@ -57,7 +69,7 @@ export default function Login({navigation}) {
         secureTextEntry={true}
         autoCapitalize="none"
       />
-      <TouchableOpacity style={styles.buttonEnter} onPress={() => Tentativa()}>
+      <TouchableOpacity style={styles.buttonEnter} onPress={() => Login()}>
         <Text style={styles.buttonText}>ENTRAR</Text>
       </TouchableOpacity>
     </SafeAreaView>
