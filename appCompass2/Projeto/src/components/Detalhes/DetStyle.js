@@ -25,8 +25,8 @@ export default StyleSheet.create({
     paddingVertical: 58,
   },
   squareIcons: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
+    paddingHorizontal: 32,
+    justifyContent: 'space-between',
   },
   squareDescription: {
     backgroundColor: '#FFFFFF',
@@ -35,7 +35,6 @@ export default StyleSheet.create({
     width: 350,
     margin: 10,
     borderRadius: 20,
-    textAlign: 'center',
     paddingHorizontal: 38,
     paddingVertical: 13,
   },
@@ -44,33 +43,17 @@ export default StyleSheet.create({
     color: 'black',
     fontFamily: 'SourceSansPro-SemiBold',
   },
-  TextCook: {
-    fontSize: 13,
-    color: 'black',
-    fontFamily: 'SourceSansPro-Bold',
-    marginTop: 9,
-  },
-  TextSports: {
-    fontSize: 13,
-    color: 'black',
-    fontFamily: 'SourceSansPro-Bold',
-    marginTop: 9,
-  },
-  TextParty: {
-    fontSize: 13,
-    color: 'black',
-    fontFamily: 'SourceSansPro-Bold',
-    marginTop: 9,
-  },
   textBox: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    marginRight: 6,
+    marginTop: 10,
+    fontSize: 13,
+    color: 'black',
+    fontFamily: 'SourceSansPro-SemiBold',
   },
   icon: {
     padding: 12,
     borderRadius: 50,
     backgroundColor: '#304FFE',
+    alignSelf: 'center',
   },
   button: {
     width: 40,

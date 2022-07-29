@@ -48,6 +48,7 @@ export default StyleSheet.create({
   },
   boxActivities: {
     marginTop: 25,
+    paddingVertical: 55,
     borderColor: 'black',
     borderWidth: 1,
     borderRadius: 20,

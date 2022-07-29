@@ -6,8 +6,6 @@ export default StyleSheet.create({
     height: 35,
   },
   button: {
-    alignItems: 'center',
-    marginHorizontal: 25,
-    marginVertical: 10,
+    padding: 25,
   },
 });
