@@ -77,9 +77,9 @@ export default function MudarPerfil({route, navigation}) {
             style={styles.pickerStyle}
             selectedValue={genero}
             onValueChange={(itemValue, itemIndex) => setGenero(itemValue)}>
-            <Picker.Item label="Masculino" value="Masculino" />
-            <Picker.Item label="Feminino" value="Feminino" />
-            <Picker.Item label="Outro" value="Outro" />
+            <Picker.Item label="Masculino" value="male" />
+            <Picker.Item label="Feminino" value="female" />
+            <Picker.Item label="Outro" value="other" />
           </Picker>
         </View>
 
