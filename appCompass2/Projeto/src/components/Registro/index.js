@@ -106,7 +106,7 @@ export default function Registro() {
       descricao: 'Lorem Ipsum Dolor Sit',
     },
   ];
-  if (registros.length > 0) {
+  if (atividades.length > 0) {
     return <RegistroCheio registros={atividades} />; // caso tenha registro, mostra Lista, se não mostra Tela sem Conteudo (planos futuros)
   } else {
     return <RegistroVazio />;
