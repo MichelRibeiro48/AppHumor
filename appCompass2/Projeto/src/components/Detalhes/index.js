@@ -29,7 +29,6 @@ export default function Detalhes({route, navigation}) {
   useEffect(() => {
     getActivitiesDetailed();
   }, []);
-  console.log(item.activities);
   return (
     <View style={DetStyle.container}>
       {loading ? (
@@ -141,42 +140,6 @@ export default function Detalhes({route, navigation}) {
                 </>
               )}
             />
-            {/* <View style={DetStyle.squareIcons}>
-              <View style={{alignItems: 'center'}}>
-                <MaterialC
-                  name="party-popper"
-                  size={27}
-                  color={'white'}
-                  style={DetStyle.icon}
-                />
-                <Text style={DetStyle.textBox}>
-                  {traducao[item?.activities[0].name]}
-                </Text>
-              </View>
-              <View style={{alignItems: 'center'}}>
-                <FontA
-                  name="soccer-ball-o"
-                  size={27}
-                  color={'white'}
-                  style={DetStyle.icon}
-                />
-                <Text style={DetStyle.textBox}>
-                  {traducao[item?.activities[1].name]}
-                </Text>
-              </View>
-              <View style={{alignItems: 'center'}}>
-                <MaterialC
-                  name="food-turkey"
-                  size={27}
-                  color={'white'}
-                  style={DetStyle.icon}
-                />
-                <Text style={DetStyle.textBox}>
-                  {traducao[item?.activities[2].name]}
-                </Text>
-              </View>
-            </View>
-            <View style={DetStyle.TextCook} /> */}
           </View>
           <View style={DetStyle.squareDescription}>
             <View>

@@ -39,7 +39,6 @@ export default function Perfil({navigation}) {
       },
     ]);
   };
-  console.log(loading);
   return (
     <View style={styles.container}>
       {loading ? (
