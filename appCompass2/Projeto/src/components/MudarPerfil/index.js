@@ -34,6 +34,7 @@ export default function MudarPerfil({route, navigation}) {
         payload,
       );
       if (response.error) {
+        // eslint-disable-next-line no-alert
         alert(response.message);
         return false;
       }

@@ -3,7 +3,6 @@ import {FlatList, Text, TouchableOpacity, View} from 'react-native';
 
 import CloseIcon from 'react-native-vector-icons/AntDesign';
 import {api} from '../../service/api';
-import Emotes from '../Emotes';
 import Fotos from '../Fotos';
 import styles from './styles';
 export default function AlterarFoto({navigation}) {
@@ -25,10 +24,9 @@ export default function AlterarFoto({navigation}) {
           photo_id: emoteAtivo.id,
         },
       };
-      const response = await api.put(
-        'https://shrouded-shelf-01513.herokuapp.com/user',
-        payload,
-      );
+      const response = await api
+        .put('https://shrouded-shelf-01513.herokuapp.com/user', payload)
+        .then(getPhotos());
       if (response.error) {
         // eslint-disable-next-line no-alert
         alert(response.message);
@@ -43,33 +41,6 @@ export default function AlterarFoto({navigation}) {
     getPhotos();
   }, []);
   const [emoteAtivo, setEmoteAtivo] = useState(null);
-  console.log(emoteAtivo);
-  const emojis = [
-    {
-      id: 1,
-      emote: require('../../../assets/radiant.png'),
-    },
-    {
-      id: 2,
-      emote: require('../../../assets/happy.png'),
-    },
-    {
-      id: 3,
-      emote: require('../../../assets/ok.png'),
-    },
-    {
-      id: 4,
-      emote: require('../../../assets/sad.png'),
-    },
-    {
-      id: 5,
-      emote: require('../../../assets/terrible.png'),
-    },
-    {
-      id: 6,
-      emote: require('../../../assets/terrible.png'),
-    },
-  ];
   return (
     <View style={styles.page}>
       <TouchableOpacity
@@ -105,6 +76,7 @@ export default function AlterarFoto({navigation}) {
           <Text
             style={styles.buttonText}
             onPress={() => {
+              // eslint-disable-next-line no-sequences
               updateUserPhoto(), navigation.goBack();
             }}>
             CONFIRMAR
