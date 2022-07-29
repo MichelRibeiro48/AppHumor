@@ -37,7 +37,7 @@ export default function Login({navigation}) {
       await AsyncStorage.setItem('@token', response.data.access_token);
       navigation.navigate('Registro');
     } catch (err) {
-      alert(err.message);
+      alert('usuario ou senha invalidos');
     }
   };
 
