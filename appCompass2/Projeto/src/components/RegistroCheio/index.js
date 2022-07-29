@@ -18,7 +18,6 @@ import {traducao} from '../../settings/ptBR';
 import {ACTIVITIESICON} from '../../settings/activitiesIcon';
 export default function RegistroCheio({registros}) {
   const Navigation = useNavigation();
-
   return (
     <SafeAreaView style={RegFStyles.marginToScroll}>
       <FlatList
@@ -63,13 +62,15 @@ export default function RegistroCheio({registros}) {
                             fontFamily: 'SourceSansPro-Bold',
                           }
                         : item.mood === 'radiant'
-                        ? {
+                        ? // eslint-disable-next-line react-native/no-inline-styles
+                          {
                             color: '#29ACE9',
                             fontSize: 24,
                             fontFamily: 'SourceSansPro-Bold',
                           }
                         : item.mood === 'ok'
-                        ? {
+                        ? // eslint-disable-next-line react-native/no-inline-styles
+                          {
                             color: '#889BA4',
                             fontSize: 24,
                             fontFamily: 'SourceSansPro-Bold',
@@ -87,39 +88,28 @@ export default function RegistroCheio({registros}) {
               </View>
             </View>
             <View style={RegFStyles.typeInformation}>
-              <Image
-                style={RegFStyles.icon}
-                source={ACTIVITIESICON[item.activities[0].name]}
+              <FlatList
+                data={item.activities}
+                keyExtractor={item => item.id}
+                horizontal={true}
+                renderItem={({item}) => (
+                  <>
+                    <Image
+                      style={RegFStyles.icon}
+                      source={ACTIVITIESICON[item.name]}
+                    />
+                    <Text style={RegFStyles.textColor}>
+                      {traducao[item.name]}
+                    </Text>
+                    <Circle
+                      name={'circle'}
+                      size={4}
+                      color={'black'}
+                      style={RegFStyles.circleStyle}
+                    />
+                  </>
+                )}
               />
-              <Text style={RegFStyles.textColor}>
-                {traducao[item.activities[0].name]}
-              </Text>
-              <Circle
-                name={'circle'}
-                size={8}
-                color={'black'}
-                style={RegFStyles.circleStyle}
-              />
-              <Image
-                style={RegFStyles.icon}
-                source={ACTIVITIESICON[item.activities[1].name]}
-              />
-              <Text style={RegFStyles.textColor}>
-                {traducao[item.activities[1].name]}
-              </Text>
-              <Circle
-                name={'circle'}
-                size={8}
-                color={'black'}
-                style={RegFStyles.circleStyle}
-              />
-              <Image
-                style={RegFStyles.icon}
-                source={ACTIVITIESICON[item.activities[2].name]}
-              />
-              <Text style={RegFStyles.textColor}>
-                {traducao[item.activities[2].name]}
-              </Text>
             </View>
             <Text style={RegFStyles.descricao} numberOfLines={1}>
               {item.short_description}

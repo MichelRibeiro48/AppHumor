@@ -30,6 +30,7 @@ export default function AlterarFoto({navigation}) {
         payload,
       );
       if (response.error) {
+        // eslint-disable-next-line no-alert
         alert(response.message);
         return false;
       }
@@ -78,6 +79,7 @@ export default function AlterarFoto({navigation}) {
           name="close"
           size={32}
           color={'#4B75E2'}
+          // eslint-disable-next-line react-native/no-inline-styles
           style={{marginTop: 4, marginLeft: 3}}
         />
       </TouchableOpacity>

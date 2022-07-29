@@ -16,11 +16,19 @@ export default function ActivitiesIcon({item, estaAtivo, onPress}) {
           borderRadius: 50,
           borderWidth: 1,
           borderColor: estaAtivo ? 'blue' : 'black',
+          marginBottom: 10,
         }}>
         <Image source={item.icon} style={styles.iconStyles} />
       </View>
       <View>
-        <Text style={{color: 'black'}}>{item.descricao}</Text>
+        <Text
+          style={{
+            color: 'black',
+            fontFamily: 'SourceSansPro-SemiBold',
+            alignSelf: 'center',
+          }}>
+          {item.descricao}
+        </Text>
       </View>
     </TouchableOpacity>
   );

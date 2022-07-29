@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Image, Text, TouchableOpacity, View} from 'react-native';
+import {FlatList, Image, Text, TouchableOpacity, View} from 'react-native';
 import DetStyle from './DetStyle';
 
 import MaterialC from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -10,6 +10,7 @@ import {traducao} from '../../settings/ptBR';
 import {api} from '../../service/api';
 import format from 'date-fns/format';
 import ptBR from 'date-fns/locale/pt-BR';
+import {DETAILSICON} from '../../settings/detailsIcon';
 export default function Detalhes({route, navigation}) {
   const {item} = route.params;
   const [loading, setLoading] = useState(true);
@@ -28,7 +29,7 @@ export default function Detalhes({route, navigation}) {
   useEffect(() => {
     getActivitiesDetailed();
   }, []);
-  console.log(activitiesDetailed.activities[0]);
+  console.log(item.activities);
   return (
     <View style={DetStyle.container}>
       {loading ? (
@@ -99,42 +100,83 @@ export default function Detalhes({route, navigation}) {
                     fontSize: 24,
                     fontFamily: 'SourceSansPro-Bold',
                   }
+                : activitiesDetailed?.mood === 'radiant'
+                ? // eslint-disable-next-line react-native/no-inline-styles
+                  {
+                    color: '#29ACE9',
+                    fontSize: 24,
+                    fontFamily: 'SourceSansPro-Bold',
+                  }
+                : activitiesDetailed?.mood === 'ok'
+                ? // eslint-disable-next-line react-native/no-inline-styles
+                  {
+                    color: '#889BA4',
+                    fontSize: 24,
+                    fontFamily: 'SourceSansPro-Bold',
+                  }
                 : null
             }>
             {traducao[activitiesDetailed?.mood]}
           </Text>
           <View style={DetStyle.square}>
-            <View style={DetStyle.squareIcons}>
-              <MaterialC
-                name="party-popper"
-                size={27}
-                color={'white'}
-                style={DetStyle.icon}
-              />
-              <FontA
-                name="soccer-ball-o"
-                size={27}
-                color={'white'}
-                style={DetStyle.icon}
-              />
-              <MaterialC
-                name="food-turkey"
-                size={27}
-                color={'white'}
-                style={DetStyle.icon}
-              />
+            <FlatList
+              data={item.activities}
+              keyExtractor={item => item.id}
+              horizontal={true}
+              renderItem={({item}) => (
+                <>
+                  <View style={DetStyle.squareIcons}>
+                    <View style={{alignItems: 'center'}}>
+                      <MaterialC
+                        name={DETAILSICON[item.name]}
+                        size={27}
+                        color={'white'}
+                        style={DetStyle.icon}
+                      />
+                      <Text style={DetStyle.textBox}>
+                        {traducao[item.name]}
+                      </Text>
+                    </View>
+                  </View>
+                </>
+              )}
+            />
+            {/* <View style={DetStyle.squareIcons}>
+              <View style={{alignItems: 'center'}}>
+                <MaterialC
+                  name="party-popper"
+                  size={27}
+                  color={'white'}
+                  style={DetStyle.icon}
+                />
+                <Text style={DetStyle.textBox}>
+                  {traducao[item?.activities[0].name]}
+                </Text>
+              </View>
+              <View style={{alignItems: 'center'}}>
+                <FontA
+                  name="soccer-ball-o"
+                  size={27}
+                  color={'white'}
+                  style={DetStyle.icon}
+                />
+                <Text style={DetStyle.textBox}>
+                  {traducao[item?.activities[1].name]}
+                </Text>
+              </View>
+              <View style={{alignItems: 'center'}}>
+                <MaterialC
+                  name="food-turkey"
+                  size={27}
+                  color={'white'}
+                  style={DetStyle.icon}
+                />
+                <Text style={DetStyle.textBox}>
+                  {traducao[item?.activities[2].name]}
+                </Text>
+              </View>
             </View>
-            <View style={DetStyle.textBox}>
-              <Text style={DetStyle.TextParty}>
-                {activitiesDetailed?.activities[0].name}
-              </Text>
-              <Text style={DetStyle.TextSports}>
-                {activitiesDetailed?.activities[1].name}
-              </Text>
-              <Text style={DetStyle.TextCook}>
-                {activitiesDetailed?.activities[2].name}
-              </Text>
-            </View>
+            <View style={DetStyle.TextCook} /> */}
           </View>
           <View style={DetStyle.squareDescription}>
             <View>
